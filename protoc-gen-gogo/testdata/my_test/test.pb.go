@@ -885,6 +885,8 @@ func init() {
 	proto.RegisterExtension(E_Donut)
 }
 
+// It is alive!
+
 func init() { proto.RegisterFile("my_test/test.proto", fileDescriptorTest) }
 
 var fileDescriptorTest = []byte{

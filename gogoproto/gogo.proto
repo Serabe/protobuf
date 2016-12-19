@@ -39,6 +39,7 @@ extend google.protobuf.EnumOptions {
 	optional bool goproto_enum_stringer = 62021;
 	optional bool enum_stringer = 62022;
 	optional string enum_customname = 62023;
+    optional string enum_customtype = 62024;
 }
 
 extend google.protobuf.EnumValueOptions {

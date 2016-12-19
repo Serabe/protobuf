@@ -1938,6 +1938,8 @@ func init() {
 	proto.RegisterEnum("google.protobuf.FieldOptions_JSType", FieldOptions_JSType_name, FieldOptions_JSType_value)
 }
 
+// It is alive!
+
 func init() { proto.RegisterFile("descriptor.proto", fileDescriptorDescriptor) }
 
 var fileDescriptorDescriptor = []byte{

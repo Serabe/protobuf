@@ -343,3 +343,24 @@ func ImportsGoGoProto(file *google_protobuf.FileDescriptorProto) bool {
 func HasCompare(file *google_protobuf.FileDescriptorProto, message *google_protobuf.DescriptorProto) bool {
 	return proto.GetBoolExtension(message.Options, E_Compare, proto.GetBoolExtension(file.Options, E_CompareAll, false))
 }
+
+func IsEnumCustomType(field *google_protobuf.EnumDescriptorProto) bool {
+	name := GetEnumCustomType(field)
+	if len(name) > 0 {
+		return true
+	}
+	return false
+}
+
+func GetEnumCustomType(field *google_protobuf.EnumDescriptorProto) string {
+	if field == nil {
+		return ""
+	}
+	if field.Options != nil {
+		v, err := proto.GetExtension(field.Options, E_EnumCustomtype)
+		if err == nil && v.(*string) != nil {
+			return *(v.(*string))
+		}
+	}
+	return ""
+}

@@ -39,6 +39,7 @@ import (
 	_ "github.com/gogo/protobuf/plugin/defaultcheck"
 	_ "github.com/gogo/protobuf/plugin/description"
 	_ "github.com/gogo/protobuf/plugin/embedcheck"
+	_ "github.com/gogo/protobuf/plugin/enumcustomtype"
 	_ "github.com/gogo/protobuf/plugin/enumstringer"
 	_ "github.com/gogo/protobuf/plugin/equal"
 	_ "github.com/gogo/protobuf/plugin/face"

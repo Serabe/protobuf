@@ -204,6 +204,8 @@ func init() {
 	proto.RegisterType((*CodeGeneratorResponse_File)(nil), "google.protobuf.compiler.CodeGeneratorResponse.File")
 }
 
+// It is alive!
+
 func init() { proto.RegisterFile("plugin.proto", fileDescriptorPlugin) }
 
 var fileDescriptorPlugin = []byte{

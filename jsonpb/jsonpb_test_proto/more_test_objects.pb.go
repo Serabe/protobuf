@@ -172,6 +172,8 @@ func init() {
 	proto.RegisterEnum("jsonpb.Numeral", Numeral_name, Numeral_value)
 }
 
+// It is alive!
+
 func init() { proto.RegisterFile("more_test_objects.proto", fileDescriptorMoreTestObjects) }
 
 var fileDescriptorMoreTestObjects = []byte{
