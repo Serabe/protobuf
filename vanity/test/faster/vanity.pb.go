@@ -58,6 +58,8 @@ func (m *A) GetInt() int64 {
 func init() {
 	proto.RegisterType((*A)(nil), "vanity.A")
 }
+
+// It is alive!
 func (m *A) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)

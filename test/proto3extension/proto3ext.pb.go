@@ -51,6 +51,8 @@ func init() {
 	proto.RegisterExtension(E_Index)
 }
 
+// It is alive!
+
 func init() { proto.RegisterFile("proto3ext.proto", fileDescriptorProto3Ext) }
 
 var fileDescriptorProto3Ext = []byte{

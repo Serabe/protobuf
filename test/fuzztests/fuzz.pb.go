@@ -386,6 +386,8 @@ func init() {
 	proto.RegisterType((*NinOptNative)(nil), "fuzztests.NinOptNative")
 	proto.RegisterType((*NinOptStruct)(nil), "fuzztests.NinOptStruct")
 }
+
+// It is alive!
 func (this *Nil) GoString() string {
 	if this == nil {
 		return "nil"

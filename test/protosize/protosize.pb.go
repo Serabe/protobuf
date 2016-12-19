@@ -77,6 +77,8 @@ func (m *SizeMessage) GetString_() string {
 func init() {
 	proto.RegisterType((*SizeMessage)(nil), "protosize.SizeMessage")
 }
+
+// It is alive!
 func (this *SizeMessage) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

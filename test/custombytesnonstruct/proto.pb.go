@@ -45,6 +45,8 @@ func (*Object) Descriptor() ([]byte, []int) { return fileDescriptorProto, []int{
 func init() {
 	proto.RegisterType((*Object)(nil), "custombytesnonstruct.Object")
 }
+
+// It is alive!
 func (m *Object) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0

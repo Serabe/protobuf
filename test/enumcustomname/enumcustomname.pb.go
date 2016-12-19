@@ -263,6 +263,8 @@ func init() {
 	proto.RegisterEnum("enumcustomname.MyCustomUnprefixedEnum", MyCustomUnprefixedEnum_name, MyCustomUnprefixedEnum_value)
 	proto.RegisterEnum("enumcustomname.MyEnumWithEnumStringer", MyEnumWithEnumStringer_name, MyEnumWithEnumStringer_value)
 }
+
+// It is alive!
 func (x MyEnumWithEnumStringer) String() string {
 	s, ok := MyEnumWithEnumStringer_name[int32(x)]
 	if ok {

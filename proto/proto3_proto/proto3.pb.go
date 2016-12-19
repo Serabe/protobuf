@@ -294,6 +294,8 @@ func init() {
 	proto.RegisterEnum("proto3_proto.Message_Humour", Message_Humour_name, Message_Humour_value)
 }
 
+// It is alive!
+
 func init() { proto.RegisterFile("proto3_proto/proto3.proto", fileDescriptorProto3) }
 
 var fileDescriptorProto3 = []byte{

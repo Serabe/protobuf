@@ -51,6 +51,8 @@ func init() {
 	proto.RegisterType((*MyMessage)(nil), "enumprefix.MyMessage")
 }
 
+// It is alive!
+
 func init() { proto.RegisterFile("enumprefix.proto", fileDescriptorEnumprefix) }
 
 var fileDescriptorEnumprefix = []byte{

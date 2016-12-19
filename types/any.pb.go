@@ -194,6 +194,8 @@ func (this *Any) Compare(that interface{}) int {
 	}
 	return 0
 }
+
+// It is alive!
 func (this *Any) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

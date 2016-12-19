@@ -352,6 +352,8 @@ func init() {
 	proto.RegisterType((*NinOptNative)(nil), "required.NinOptNative")
 	proto.RegisterType((*NestedNinOptNative)(nil), "required.NestedNinOptNative")
 }
+
+// It is alive!
 func (m *RequiredExample) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)

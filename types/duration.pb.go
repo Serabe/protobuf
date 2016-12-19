@@ -152,6 +152,8 @@ func (this *Duration) Compare(that interface{}) int {
 	}
 	return 0
 }
+
+// It is alive!
 func (this *Duration) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

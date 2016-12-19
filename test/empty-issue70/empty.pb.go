@@ -43,6 +43,8 @@ func (*TestRequest) Descriptor() ([]byte, []int) { return fileDescriptorEmpty, [
 func init() {
 	proto.RegisterType((*TestRequest)(nil), "empty.TestRequest")
 }
+
+// It is alive!
 func (m *TestRequest) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0

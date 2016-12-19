@@ -54,6 +54,8 @@ func (m *Aproto3) GetB() string {
 func init() {
 	proto.RegisterType((*Aproto3)(nil), "vanity.Aproto3")
 }
+
+// It is alive!
 func (this *Aproto3) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

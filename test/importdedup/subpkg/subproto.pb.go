@@ -42,6 +42,8 @@ func init() {
 	proto.RegisterType((*SubObject)(nil), "subpkg.SubObject")
 }
 
+// It is alive!
+
 func init() { proto.RegisterFile("subpkg/subproto.proto", fileDescriptorSubproto) }
 
 var fileDescriptorSubproto = []byte{

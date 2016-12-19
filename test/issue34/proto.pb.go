@@ -70,6 +70,8 @@ func init() {
 	proto.RegisterType((*Foo)(nil), "issue34.Foo")
 	proto.RegisterType((*FooWithRepeated)(nil), "issue34.FooWithRepeated")
 }
+
+// It is alive!
 func (m *Foo) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0

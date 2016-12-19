@@ -54,6 +54,8 @@ func init() {
 	proto.RegisterType((*Object)(nil), "importdedup.Object")
 }
 
+// It is alive!
+
 func init() { proto.RegisterFile("proto.proto", fileDescriptorProto) }
 
 var fileDescriptorProto = []byte{

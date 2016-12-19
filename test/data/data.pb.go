@@ -55,6 +55,8 @@ func (m *MyMessage) GetMyData() uint32 {
 func init() {
 	proto.RegisterType((*MyMessage)(nil), "data.MyMessage")
 }
+
+// It is alive!
 func (this *MyMessage) VerboseEqual(that interface{}) error {
 	if that == nil {
 		if this == nil {

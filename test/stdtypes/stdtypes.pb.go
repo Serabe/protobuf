@@ -307,6 +307,8 @@ func init() {
 	proto.RegisterType((*MapStdTypes)(nil), "stdtypes.MapStdTypes")
 	proto.RegisterType((*OneofStdTypes)(nil), "stdtypes.OneofStdTypes")
 }
+
+// It is alive!
 func (this *StdTypes) VerboseEqual(that interface{}) error {
 	if that == nil {
 		if this == nil {

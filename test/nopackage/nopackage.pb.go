@@ -49,6 +49,8 @@ func (m *M) GetF() map[string]float64 {
 func init() {
 	proto.RegisterType((*M)(nil), "M")
 }
+
+// It is alive!
 func (m *M) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)

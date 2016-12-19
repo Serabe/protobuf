@@ -69,6 +69,8 @@ func init() {
 	proto.RegisterType((*Outside)(nil), "tags.Outside")
 	proto.RegisterType((*Inside)(nil), "tags.Inside")
 }
+
+// It is alive!
 func NewPopulatedOutside(r randyTags, easy bool) *Outside {
 	this := &Outside{}
 	if r.Intn(10) != 0 {

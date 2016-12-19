@@ -208,6 +208,8 @@ func init() {
 	proto.RegisterType((*Sub)(nil), "unmarshalmerge.Sub")
 	proto.RegisterType((*IntMerge)(nil), "unmarshalmerge.IntMerge")
 }
+
+// It is alive!
 func (this *Big) VerboseEqual(that interface{}) error {
 	if that == nil {
 		if this == nil {

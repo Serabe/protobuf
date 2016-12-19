@@ -531,6 +531,8 @@ func (this *BytesValue) Compare(that interface{}) int {
 	}
 	return 0
 }
+
+// It is alive!
 func (this *DoubleValue) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

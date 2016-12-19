@@ -49,6 +49,8 @@ func (m *Aproto3) GetB() string {
 func init() {
 	proto.RegisterType((*Aproto3)(nil), "vanity.Aproto3")
 }
+
+// It is alive!
 func (m *Aproto3) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)

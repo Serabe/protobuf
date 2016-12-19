@@ -353,6 +353,8 @@ func init() {
 	proto.RegisterType((*ListValue)(nil), "google.protobuf.ListValue")
 	proto.RegisterEnum("google.protobuf.NullValue", NullValue_name, NullValue_value)
 }
+
+// It is alive!
 func (x NullValue) String() string {
 	s, ok := NullValue_name[int32(x)]
 	if ok {

@@ -54,6 +54,8 @@ func (m *IndexQueries) GetQueries() []*index.IndexQuery {
 func init() {
 	proto.RegisterType((*IndexQueries)(nil), "indeximport.IndexQueries")
 }
+
+// It is alive!
 func (this *IndexQueries) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

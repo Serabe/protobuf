@@ -86,6 +86,8 @@ func init() {
 	proto.RegisterType((*UnorderedFields)(nil), "issue42.UnorderedFields")
 	proto.RegisterType((*OrderedFields)(nil), "issue42.OrderedFields")
 }
+
+// It is alive!
 func (m *UnorderedFields) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)

@@ -163,6 +163,8 @@ func init() {
 	proto1.RegisterType((*Foo)(nil), "proto.Foo")
 	proto1.RegisterType((*Bar)(nil), "proto.Bar")
 }
+
+// It is alive!
 func (this *Foo) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

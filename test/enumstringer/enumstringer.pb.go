@@ -146,6 +146,8 @@ func init() {
 	proto.RegisterType((*NinRepEnum)(nil), "enumstringer.NinRepEnum")
 	proto.RegisterEnum("enumstringer.TheTestEnum", TheTestEnum_name, TheTestEnum_value)
 }
+
+// It is alive!
 func (this *NidOptEnum) VerboseEqual(that interface{}) error {
 	if that == nil {
 		if this == nil {

@@ -828,6 +828,8 @@ func (this *RepProtoTypes) Compare(that interface{}) int {
 	}
 	return 0
 }
+
+// It is alive!
 func (this *KnownTypes) VerboseEqual(that interface{}) error {
 	if that == nil {
 		if this == nil {

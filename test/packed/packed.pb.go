@@ -494,6 +494,8 @@ func init() {
 	proto.RegisterType((*NinRepNativeUnsafe)(nil), "packed.NinRepNativeUnsafe")
 	proto.RegisterType((*NinRepPackedNativeUnsafe)(nil), "packed.NinRepPackedNativeUnsafe")
 }
+
+// It is alive!
 func NewPopulatedNinRepNative(r randyPacked, easy bool) *NinRepNative {
 	this := &NinRepNative{}
 	if r.Intn(10) != 0 {

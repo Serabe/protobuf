@@ -83,6 +83,8 @@ func (this *Empty) Compare(that interface{}) int {
 	}
 	return 0
 }
+
+// It is alive!
 func (this *Empty) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

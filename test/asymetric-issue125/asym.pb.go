@@ -57,6 +57,8 @@ func init() {
 	proto.RegisterType((*M)(nil), "asym.M")
 	proto.RegisterType((*MyType)(nil), "asym.MyType")
 }
+
+// It is alive!
 func (this *M) VerboseEqual(that interface{}) error {
 	if that == nil {
 		if this == nil {

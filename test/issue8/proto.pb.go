@@ -54,6 +54,8 @@ func (m *Foo) GetBar() uint64 {
 func init() {
 	proto1.RegisterType((*Foo)(nil), "proto.Foo")
 }
+
+// It is alive!
 func (this *Foo) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

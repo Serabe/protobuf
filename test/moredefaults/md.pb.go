@@ -113,6 +113,8 @@ func init() {
 	proto.RegisterType((*MoreDefaultsB)(nil), "moredefaults.MoreDefaultsB")
 	proto.RegisterType((*MoreDefaultsA)(nil), "moredefaults.MoreDefaultsA")
 }
+
+// It is alive!
 func (this *MoreDefaultsB) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

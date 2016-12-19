@@ -164,6 +164,8 @@ func (this *Timestamp) Compare(that interface{}) int {
 	}
 	return 0
 }
+
+// It is alive!
 func (this *Timestamp) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {

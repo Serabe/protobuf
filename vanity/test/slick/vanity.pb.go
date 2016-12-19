@@ -62,6 +62,8 @@ func (m *A) GetInt() int64 {
 func init() {
 	proto.RegisterType((*A)(nil), "vanity.A")
 }
+
+// It is alive!
 func (this *A) Equal(that interface{}) bool {
 	if that == nil {
 		if this == nil {
