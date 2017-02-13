@@ -609,31 +609,8 @@ type Generator struct {
 	indent           string
 	writeOutput      bool
 
-	customImports  []*customImport
+	customImports  []*importedPackage
 	writtenImports map[string]bool // For de-duplicating written imports
-}
-
-// customImport represents a custom import in the generated package
-type customImport struct {
-	// Alias represents the alias in the import
-	Alias string
-	// Path represents the package's path in the import
-	Path string
-	// UndescorableSymbol, if present, represent the symbol to assign to _ to make
-	// sure the package is used so the compiler does not complain
-	UnderscorableSymbol string
-}
-
-func newCustomImport(path, underscorableSymbol string) *customImport {
-	return &customImport{
-		Alias:               strings.Map(badToUnderscore, path),
-		Path:                path,
-		UnderscorableSymbol: underscorableSymbol,
-	}
-}
-
-func (c *customImport) hasUnderscorableSymbol() bool {
-	return c != nil && c.UnderscorableSymbol != ""
 }
 
 // New creates a new generator and allocates the request and response protobufs.
@@ -1263,7 +1240,7 @@ func (g *Generator) FileOf(fd *descriptor.FileDescriptorProto) *FileDescriptor {
 // Fill the response protocol buffer with the generated output for all the files we're
 // supposed to generate.
 func (g *Generator) generate(file *FileDescriptor) {
-	g.customImports = make([]*customImport, 0)
+	g.customImports = make([]*importedPackage, 0)
 	g.file = g.FileOf(file.FileDescriptorProto)
 	g.usedPackages = make(map[string]bool)
 
@@ -1475,7 +1452,9 @@ func (g *Generator) generateImports() {
 	}
 	g.P()
 	for _, s := range g.customImports {
-		g.PrintImport(s.Alias, s.Path)
+		if s.IsUsed() {
+			g.PrintImport(s.Name(), s.Location())
+		}
 	}
 	g.P()
 	// TODO: may need to worry about uniqueness across plugins
@@ -1487,15 +1466,6 @@ func (g *Generator) generateImports() {
 	g.P("var _ = ", g.Pkg["proto"], ".Marshal")
 	g.P("var _ = ", g.Pkg["fmt"], ".Errorf")
 	g.P("var _ = ", g.Pkg["math"], ".Inf")
-	for _, s := range g.customImports {
-		if s.hasUnderscorableSymbol() {
-			stmt := fmt.Sprintf("var _ = %s.%s", s.Alias, s.UnderscorableSymbol)
-			if !g.writtenImports[stmt] {
-				g.P(stmt)
-				g.writtenImports[stmt] = true
-			}
-		}
-	}
 	g.P()
 }
 
@@ -1900,7 +1870,9 @@ func (g *Generator) GoType(message *Descriptor, field *descriptor.FieldDescripto
 			g.Fail(err.Error())
 		}
 		if len(packageName) > 0 {
-			g.customImports = append(g.customImports, newCustomImport(packageName, ""))
+			pkg := newImportedPackage("", packageName)
+			pkg.Use()
+			g.customImports = append(g.customImports, pkg)
 		}
 	case gogoproto.IsCastType(field):
 		var packageName string
@@ -1910,14 +1882,18 @@ func (g *Generator) GoType(message *Descriptor, field *descriptor.FieldDescripto
 			g.Fail(err.Error())
 		}
 		if len(packageName) > 0 {
-			g.customImports = append(g.customImports, newCustomImport(packageName, ""))
+			pkg := newImportedPackage("", packageName)
+			pkg.Use()
+			g.customImports = append(g.customImports, pkg)
 		}
 	case gogoproto.IsStdTime(field):
-		g.customImports = append(g.customImports, newCustomImport("time", "Now"))
-		typ = "time.Time"
+		timePkg := newImportedPackage("", "time")
+		g.customImports = append(g.customImports, timePkg)
+		typ = timePkg.Use() + ".Time"
 	case gogoproto.IsStdDuration(field):
-		g.customImports = append(g.customImports, newCustomImport("time", "Now"))
-		typ = "time.Duration"
+		timePkg := newImportedPackage("", "time")
+		g.customImports = append(g.customImports, timePkg)
+		typ = timePkg.Use() + ".Duration"
 	}
 	if needsStar(field, g.file.proto3 && field.Extendee == nil, message != nil && message.allowOneof()) {
 		typ = "*" + typ
@@ -1972,7 +1948,9 @@ func (g *Generator) GoMapType(d *Descriptor, field *descriptor.FieldDescriptorPr
 			g.Fail(err.Error())
 		}
 		if len(packageName) > 0 {
-			g.customImports = append(g.customImports, newCustomImport(packageName, ""))
+			pkg := newImportedPackage("", packageName)
+			pkg.Use()
+			g.customImports = append(g.customImports, pkg)
 		}
 		m.GoType = typ
 		return m
